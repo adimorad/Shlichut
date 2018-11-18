@@ -1,0 +1,109 @@
+<app-main-nav></app-main-nav>
+<!--
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>
+        <button mat-button [matMenuTriggerFor]="menu">צד שמאל</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            File
+          </button>
+          <button mat-menu-item>
+            Save As
+          </button>
+        </mat-menu>
+      </span>
+
+      <span class="toolbarClass"></span>
+      <span>בית חב"ד פדואל-עלי זהב</span>
+      <span>
+
+      </span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container left class="example-container">
+    <mat-sidenav #sidenav class="example-sidenav">
+      Angular 4
+    </mat-sidenav>
+    <mat-sidenav #sidenav class="example-sidenav">
+    Angular 2
+    </mat-sidenav>
+      
+    <div class="example-sidenav-content">
+      <button type="button" mat-button  (click)="sidenav.open()">
+        Open sidenav
+      </button>
+    </div>
+  </mat-sidenav-container>
+-->
+
+<div>
+   <button (click)="animate()">Click Me</button>
+   <div [@myanimation] = "state" class="rotate">
+      <img src="src/assets/images/img.png" width="100" height="100">
+   </div>
+</div>
+<div>
+    <h1>Slice Pipe</h1>
+    <b>{{months | slice:2:6}}</b> 
+    // here 2 and 6 refers to the start and the end index
+</div>
+<div>
+  <span appChangeText>Welcome to {{ title }}!</span>
+  <p>
+      {{todaydate}}
+  </p>
+  <p>
+      {{newcomponent}}
+   </p>
+   <p>
+      Today's Date : {{todaydate}}
+   </p>
+  <app-new-cmp></app-new-cmp> 
+  // data to be displayed to user from the new component class.
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<div>
+   <form [formGroup]="formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
+      <input type="text" class="fortextbox" name="emailid" placeholder="emailid" 
+         formControlName="emailid">
+      <br/>
+      
+      <input type="password" class="fortextbox" name="passwd" 
+         placeholder="passwd" formControlName="passwd">
+      <br/>
+      
+      <input type="submit" [disabled] = "!formdata.valid" class="forsubmit" value="Log In">
+   </form>
+</div>
+<p>
+   Email entered is : {{emailid}}
+</p>
+<br />
+<br />
+<br />
+<a routerLink = "new-cmp">New component</a>
+<br />
+<br/>
+<router-outlet></router-outlet>
+<div> Months :
+    <select (change) = "changemonths($event)">
+       <option *ngFor="let i of months">{{i}}</option>
+    </select>
+ </div>
+ <div>
+    <span *ngIf="isavailable; else condition2">Condition is valid.</span>
+    <ng-template #condition1>Condition is valid</ng-template>
+    <ng-template #condition2>Condition is invalid</ng-template>
+ </div>
+ <button (click)="myClickFunction($event)">
+    Click Me
+ </button>
+<h2>Here are some links to help you start: hekki </h2>
+
+
+<app-new-cmp></app-new-cmp>
+<app-community-services></app-community-services>
+
+
